@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=Draw
+comment1.params=
+comment1.target=java.util.ArrayList\ startDraw()
+comment2.params=
+comment2.target=void\ drawNumbers()
+comment3.params=
+comment3.target=java.util.ArrayList\ getNumbers()
+comment4.params=
+comment4.target=void\ reset()
+numComments=5
