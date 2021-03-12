@@ -2,4 +2,6 @@
 comment0.target=Strike
 comment1.params=
 comment1.target=void\ Strike()
-numComments=2
+comment2.params=arrayPassed
+comment2.target=void\ printArray(int[])
+numComments=3

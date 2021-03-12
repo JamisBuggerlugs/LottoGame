@@ -1,24 +1,22 @@
 import java.util.Random;
-import java.util.ArrayList;
+// import java.util.ArrayList;
 
 // Draws the balls out into an array
-public class Draw { 
+public class Draw {
 
     // instance vairables: class vairables accesseable by methods in the class
     private final int MAXNUMBERS = 6;   // max amount of numbers in the draw
     private final int UPPER = 40;       // max number for each indevidual number
     private int number;             // temp vairable for generating the random num
+    private int counter = 0;
 
     private Random random = new Random();
-    private ArrayList draw = new ArrayList();
-    private ArrayList drawReturn = new ArrayList();
+    private int[] draw = new int[MAXNUMBERS];
+    private int[] drawReturn = new int[MAXNUMBERS];
 
 
     // constructor class
-    public ArrayList startDraw() {
-        System.out.println("draw pre reset: " + draw);
-        reset();
-        System.out.println("draw after reset: " + draw);
+    public int[] startDraw() {
         drawNumbers();
 
         drawReturn = getNumbers();
@@ -26,14 +24,15 @@ public class Draw {
     }
 
     public void drawNumbers() {
-        reset();
+        // reset();
         // itterate through adding numbers MAXNUMBERS amount of time
-        while (draw.size() < MAXNUMBERS) { // FIXME:
+        while (draw.length < MAXNUMBERS) {
             // generate random numbers
             number = random.nextInt(UPPER);
             // add it to the list if  number is not in the list
-            if (! draw.contains(number)) {
-                draw.add(number);
+            if (! checkArray(number)) {
+                draw[counter] = number;
+                counter++;
             }
             System.out.println("draw after reset: " + draw);
         }
@@ -41,14 +40,23 @@ public class Draw {
 
     }
 
+    public boolean checkArray(int genNumber) {
+        for (int num = 0; num < draw.length; num++) {
+            if (genNumber == draw[num]) {
+                return true;
+            } 
+        }
+        return false;
+    }
+
     // return the arraylist containing the draw of numbers
-    public ArrayList getNumbers() {
+    public int[] getNumbers() {
         return draw;
     }
 
-    public void reset() {
-        draw.clear();
-    }
+    // public void reset() {
+    //     Arrays.fill(draw, null);
+    // }
 
 }
 
