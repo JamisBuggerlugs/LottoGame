@@ -8,14 +8,20 @@ public class Strike {
     private Draw draw = new Draw();
     // private Draw winner = new Draw();
 
-    private int[] winningDraw;
-    private int[] playerDraw;
+    private int[] winningDraw;      // winning draw
+    private int[] playerDraw;       // players draw
+    private int strikePoints = 0;
+
 
     // constructor class
     public void Strike() {
 
         winningDraw = draw.startDraw();
         playerDraw = draw.startDraw();
+
+        // compair the arrays
+        compairDraws();
+
 
         printArray(winningDraw);
         out.println("");
@@ -24,13 +30,20 @@ public class Strike {
     }
 
     public void printArray(int[] arrayPassed) {
-        out.println("PrintArray()");
+        // out.println("PrintArray()");        // debugging print statement
+        // itterates through the array
         for (int i = 0; i < arrayPassed.length; i++) {
-            out.print(" " + arrayPassed[i]);
+            // printing each value of the array to the screen on the same line
+            // out.print(" " + arrayPassed[i]);
         }
     }
 
+    public void compairDraws() {
 
+        // if a collum matches:
+            strikePoints++; 
+
+    }
 }
 
 

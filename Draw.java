@@ -9,43 +9,56 @@ public class Draw {
     private final int UPPER = 40;       // max number for each indevidual number
     private int number;             // temp vairable for generating the random num
     private int counter = 0;
+    private boolean running = true;     // used keep generating numbers for the draw array
 
     private Random random = new Random();
     private int[] draw = new int[MAXNUMBERS];
-    private int[] drawReturn = new int[MAXNUMBERS];
 
 
     // constructor class
     public int[] startDraw() {
-        drawNumbers();
 
-        drawReturn = getNumbers();
-        return drawReturn;
+        reset();
+        drawNumbers();
+        return getNumbers();
     }
 
     public void drawNumbers() {
-        // reset();
-        // itterate through adding numbers MAXNUMBERS amount of time
-        while (draw.length < MAXNUMBERS) {
-            // generate random numbers
-            number = random.nextInt(UPPER);
-            // add it to the list if  number is not in the list
-            if (! checkArray(number)) {
-                draw[counter] = number;
-                counter++;
-            }
-            System.out.println("draw after reset: " + draw);
+
+        // itterate the length of the array number of times, generating n numbers
+        for (int num = 0; num < draw.length; num++) {
+            generateNumbers();
+            draw[num] = number;
+            // counter++;
         }
 
+        System.out.println("drawNumbers()" + draw);
+
+
+    }
+
+    public void generateNumbers() {
+        // generate the random number and
+        number = random.nextInt(UPPER);
+
+        // while loop checks if it is in the draw: if so it enters while
+        while (checkArray(number)) {
+            // once entered we will generate numbers until its one thats not in the array
+            number = random.nextInt(UPPER);
+        }
 
     }
 
     public boolean checkArray(int genNumber) {
+        // itterates therough the array
         for (int num = 0; num < draw.length; num++) {
+            // checks if the number is in the array
             if (genNumber == draw[num]) {
+                // returns true meaning yes the number is in the array
                 return true;
-            } 
+            }
         }
+        // other wise no the number is not in the array and can be added
         return false;
     }
 
@@ -54,9 +67,15 @@ public class Draw {
         return draw;
     }
 
-    // public void reset() {
-    //     Arrays.fill(draw, null);
-    // }
+    public void reset() {
+        // itterates therough the array
+        // for (int num = 0; num < draw.length; num++) {
+        //     // setting all the values to 0, effectively resetting it
+        //     draw[num] = 0;
+        // }
+
+        draw = new int[MAXNUMBERS]; 
+    }
 
 }
 
