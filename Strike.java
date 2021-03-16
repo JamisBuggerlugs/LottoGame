@@ -17,11 +17,16 @@ public class Strike {
     private int[] strikeOutcomes = new int[5];  // Games, S1, S2, S3, S4
 
     // constructor class
-    public void Strike() {
+    public Strike() {
+        ;
+    }
+
+    public void startGame(int[] lottoWinningDraw, int[] lottoPlayerDraw) {
         reset();
 
-        winningDraw = draw.startDraw();
-        playerDraw = draw.startDraw();
+        // the lotto class has already drawn the arrays we need
+        winningDraw = lottoWinningDraw;     // setting the draws
+        playerDraw = lottoPlayerDraw;
 
         // compair the arrays
         compairDraws();
@@ -80,7 +85,7 @@ public class Strike {
     }
 
     // returns the strike statistics
-    public int[] strikeStats() {
+    public int[] strikeStatistics() {
         return strikeOutcomes;
     }
 
@@ -96,25 +101,3 @@ public class Strike {
 
 
 }
-
-
-
-
-
-
-
-// assigning the winning draw
-
-// winningDraw = winner.startDraw();
-// playerDraw = player.startDraw();
-
-// winningDraw = draw.startDraw();
-// System.out.println("winningDraw Done");
-// out.println(winningDraw);
-// draw.reset();
-// playerDraw = draw.startDraw();
-// System.out.println("PlayerDraw Done");
-//
-// // compair the two draws
-// System.out.println("winning draw: " + winningDraw);
-// out.println("player draw: " + playerDraw);

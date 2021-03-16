@@ -1,3 +1,4 @@
 Draw.java
 Strike.java
 Lotto.java
+Play.java
