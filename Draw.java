@@ -19,6 +19,7 @@ public class Draw {
     public int[] startDraw() {
 
         reset();
+        // TODO: if user wants to input sub drawNumbers for userInput
         drawNumbers();
         return getNumbers();
     }
@@ -31,10 +32,6 @@ public class Draw {
             draw[num] = number;
             // counter++;
         }
-
-        System.out.println("drawNumbers()" + draw);
-
-
     }
 
     public void generateNumbers() {
@@ -74,7 +71,7 @@ public class Draw {
         //     draw[num] = 0;
         // }
 
-        draw = new int[MAXNUMBERS]; 
+        draw = new int[MAXNUMBERS];
     }
 
 }
